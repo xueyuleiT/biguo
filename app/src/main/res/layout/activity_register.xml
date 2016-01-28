@@ -1,0 +1,177 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tab_fragment_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <!-- register progress -->
+    <ProgressBar
+        android:id="@+id/register_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <com.example.zenghui.overyearspaper.View.PercentLinearLayout
+        android:id="@+id/register_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo"
+            app:layout_heightPercent="15%"
+            app:layout_marginTopPercent="5%"
+            app:layout_widthPercent="25%" />
+
+
+        <com.example.zenghui.overyearspaper.View.DrawableClickableEditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/logo"
+            android:background="@drawable/edit_form"
+            android:drawableLeft="@drawable/icon_shoujihao"
+            android:drawablePadding="@dimen/profile_item_padding"
+            android:gravity="center|left"
+            android:hint="@string/prompt_phone"
+            android:imeActionId="@+id/checkMobile"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/appbar_padding_top"
+            android:paddingLeft="@dimen/public_space_value_7"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/appbar_padding_top"
+            android:singleLine="true"
+            android:textColor="@color/edit_text_color"
+            android:textColorHint="@color/text_hint_color"
+            android:textSize="@dimen/normal_text_font"
+            app:layout_heightPercent="8%"
+            app:layout_marginTopPercent="4%" />
+
+        <RelativeLayout
+            android:id="@+id/sms_captcha_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/phone"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            app:layout_heightPercent="8%"
+            app:layout_marginTopPercent="3%">
+
+            <Button
+                android:id="@+id/sendVerifyMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/sms_captcha_off"
+                android:imeActionId="@+id/getSmsCaptcha"
+                android:text="@string/send_verify_msg"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/small_text_font" />
+
+            <com.example.zenghui.overyearspaper.View.DrawableClickableEditText
+                android:id="@+id/sms_captcha"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/sendVerifyMsg"
+                android:background="@drawable/reg_edit_form"
+                android:drawableLeft="@drawable/icon_yanzhengma"
+                android:drawablePadding="@dimen/profile_item_padding"
+                android:gravity="center|left"
+                android:hint="@string/prompt_captcha"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/appbar_padding_top"
+                android:paddingLeft="@dimen/public_space_value_7"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/appbar_padding_top"
+                android:singleLine="true"
+                android:textColor="@color/edit_text_color"
+                android:textColorHint="@color/text_hint_color"
+                android:textSize="@dimen/normal_text_font" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/password_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/sms_captcha_container"
+            android:background="@drawable/edit_form_off"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:paddingBottom="@dimen/appbar_padding_top"
+            android:paddingLeft="@dimen/public_space_value_7"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/appbar_padding_top"
+            app:layout_heightPercent="8%"
+            app:layout_marginTopPercent="4%">
+
+            <CheckBox
+                android:id="@+id/eye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:button="@drawable/password_eye"
+                android:gravity="center"
+                android:visibility="invisible" />
+
+            <com.example.zenghui.overyearspaper.View.DrawableClickableEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/eye"
+                android:background="@null"
+                android:drawableLeft="@drawable/icon_mima"
+                android:drawablePadding="@dimen/profile_item_padding"
+                android:gravity="center|left"
+                android:hint="@string/prompt_password"
+                android:imeActionId="@+id/login"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingRight="@dimen/appbar_padding_top"
+                android:singleLine="true"
+                android:textColor="@color/edit_text_color"
+                android:textColorHint="@color/text_hint_color"
+                android:textSize="@dimen/normal_text_font" />
+        </RelativeLayout>
+
+
+    </com.example.zenghui.overyearspaper.View.PercentLinearLayout>
+
+
+    <com.example.zenghui.overyearspaper.View.ShadowView
+        android:id="@+id/register_button"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/login_form"
+        android:layout_marginTop="@dimen/public_space_value_20"
+        android:background="@null"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:text="@string/register"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/submit_button_font"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

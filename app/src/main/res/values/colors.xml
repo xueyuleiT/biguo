@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ttf_text1_color">#666666</color>
+    <color name="ttf_background_color">#F8F8F8</color>
+    <color name="ttf_text_background_color">#d5d5d5</color>
+    <color name="ttf_liner_background_color">#efefef</color>
+    <color name="ttf_line_background_color">#e47f4d</color>
+    <color name="ttf_text_no_select_color">#c0c0c0</color>
+    <color name="ttf_report_line_color">#157AD2</color>
+    <color name="ttf_report_Xline_color">#a5d5ff</color>
+    <color name="ttf_report_background_color">#F1F7FF</color>
+    <color name="ttf_report_XY_text_color">#aeaeae</color>
+    <color name="ttf_btn_select_background_color">#e47f4d</color>
+    <color name="ttf_btn_unselect_background_color">#c8c8c8</color>
+    <color name="ttf_title_bg">#e1e3e9</color>
+    <color name="top_title_blue_theme">#49B6AD</color>
+    <color name="main_bg">#fff0f0f0</color>
+    <color name="gray_line">#cccccc</color>
+    <color name="gray_deep">#333333</color>
+
+    <color name="tab_fragment_bg">#fafafa</color>
+    <color name="orange">#fd850a</color>
+    <color name="text_hint_color">#b2b4b2</color>
+    <color name="edit_text_color">#727472</color>
+    <color name="rect_solid">#e7e9e7</color>
+    <color name="rect_solid_on">#f6f9f6</color>
+    <color name="colorPrimary">#49B6AD</color>
+    <color name="colorPrimaryDark">#2f852e</color>
+    <color name="start_loan_off">#b0b2b0</color>
+    <color name="captcha_off">#caccca</color>
+    <color name="captcha_on">#49B6AD</color>
+    <color name="profile_item_text">#6b6b6b</color>
+</resources>
