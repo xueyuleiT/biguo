@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="@dimen/public_space_value_10"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/public_space_value_50"
+            android:layout_height="@dimen/public_space_value_50"
+            android:src="@drawable/down" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/public_space_value_10"
+            android:textSize="@dimen/public_textsize_value_18"
+            android:text="高等数学" />
+
+        <ImageView
+            android:layout_width="@dimen/public_space_value_40"
+            android:layout_height="@dimen/public_space_value_40"
+            android:src="@drawable/down_failed"/>
+    </LinearLayout>
+</LinearLayout>

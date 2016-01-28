@@ -1,0 +1,169 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tab_fragment_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <com.example.zenghui.overyearspaper.View.PercentLinearLayout
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/tab_fragment_bg"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/public_space_value_5"
+        android:paddingLeft="@dimen/public_space_value_16"
+        android:paddingRight="@dimen/public_space_value_16"
+        android:paddingTop="@dimen/public_space_value_16">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo"
+            app:layout_heightPercent="15%"
+            app:layout_marginTopPercent="5%"
+            app:layout_widthPercent="25%" />
+
+
+        <LinearLayout
+            android:id="@+id/phoneLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:layout_marginTop="@dimen/public_space_value_20"
+            android:background="@drawable/edit_form"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/public_space_value_10"
+            android:paddingRight="@dimen/public_space_value_10">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_shoujihao" />
+
+            <com.example.zenghui.overyearspaper.View.DrawableClickableEditText
+                android:id="@+id/phone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/public_space_value_5"
+                android:background="@null"
+                android:hint="@string/prompt_phone"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/normal_text_font"
+                android:paddingTop="@dimen/normal_text_font"
+                android:singleLine="true"
+                android:textColor="@color/edit_text_color"
+                android:textColorHint="@color/text_hint_color"
+                android:textSize="@dimen/normal_text_font" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/pwdLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:layout_marginTop="@dimen/public_space_value_20"
+            android:background="@drawable/edit_form"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/public_space_value_10"
+            android:paddingRight="@dimen/public_space_value_10">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_mima" />
+
+            <com.example.zenghui.overyearspaper.View.DrawableClickableEditText
+                android:id="@+id/password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/public_space_value_5"
+                android:layout_weight="1"
+                android:background="@null"
+                android:focusable="true"
+                android:hint="@string/prompt_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/normal_text_font"
+                android:paddingRight="@dimen/public_space_value_5"
+                android:paddingTop="@dimen/normal_text_font"
+                android:singleLine="true"
+                android:textColor="@color/edit_text_color"
+                android:textColorHint="@color/text_hint_color"
+                android:textSize="@dimen/normal_text_font" />
+
+            <CheckBox
+                android:id="@+id/eye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:button="@drawable/password_eye"
+                android:gravity="center"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+
+    </com.example.zenghui.overyearspaper.View.PercentLinearLayout>
+
+    <LinearLayout
+        android:id="@+id/checkLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_form"
+        android:layout_marginLeft="@dimen/public_space_value_16"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" />
+
+    <com.example.zenghui.overyearspaper.View.ShadowView
+        android:id="@+id/sign_in_button"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/checkLayout"
+        android:layout_marginTop="@dimen/public_space_value_10"
+        android:background="@null"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:text="@string/login"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/submit_button_font"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sign_in_button"
+        android:gravity="center|right"
+        android:paddingRight="@dimen/public_space_value_16"
+        android:text="@string/forget_password"
+        android:textColor="@color/orange"
+        android:textSize="@dimen/public_textsize_value_12" />
+</RelativeLayout>
