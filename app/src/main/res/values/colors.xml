@@ -30,4 +30,6 @@
     <color name="captcha_off">#caccca</color>
     <color name="captcha_on">#49B6AD</color>
     <color name="profile_item_text">#6b6b6b</color>
+
+    <color name="pressedColor">#46ae46</color>
 </resources>

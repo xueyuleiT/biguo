@@ -14,7 +14,7 @@
         <ImageView
             android:layout_width="@dimen/public_space_value_50"
             android:layout_height="@dimen/public_space_value_50"
-            android:src="@drawable/down" />
+            android:background="@drawable/down_success"/>
 
         <TextView
             android:layout_width="0dp"
@@ -27,6 +27,6 @@
         <ImageView
             android:layout_width="@dimen/public_space_value_40"
             android:layout_height="@dimen/public_space_value_40"
-            android:src="@drawable/down_failed"/>
+            android:background="@drawable/down"/>
     </LinearLayout>
 </LinearLayout>

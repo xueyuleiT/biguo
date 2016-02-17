@@ -7,6 +7,15 @@ public class ChooseInfo {
 
     String name;
     boolean select;
+    int type = 0;
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 
     public String getName() {
         return name;

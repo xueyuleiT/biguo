@@ -56,8 +56,13 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (!((SearchFragment) mainActController.mFragments[0]).goBack()) {
+        if (mainActController.showFragment == 0) {
+            if (!((SearchFragment) mainActController.mFragments[0]).goBack()) {
+                super.onBackPressed();
+            }
+        } else {
             super.onBackPressed();
         }
+
     }
 }

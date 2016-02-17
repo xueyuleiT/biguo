@@ -55,9 +55,21 @@ public class ChooseAdapter extends BaseAdapter {
         viewHolder.tv.setText(dataList.get(position).getName());
 
         if (dataList.get(position).isSelect()) {
-            convertView.setBackgroundColor(context.getResources().getColor(R.color.gray_deep));
+            if(dataList.get(position).getType() == 0){
+                convertView.setBackgroundColor(context.getResources().getColor(R.color.gray_deep));
+            }else if(dataList.get(position).getType() == 1){
+                convertView.setBackgroundColor(context.getResources().getColor(R.color.top_title_blue_theme));
+            }else{
+                convertView.setBackgroundColor(context.getResources().getColor(R.color.ttf_btn_select_background_color));
+            }
         } else {
-            convertView.setBackgroundColor(context.getResources().getColor(R.color.ttf_title_bg));
+            if(dataList.get(position).getType() == 0){
+                convertView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryDark));
+            }else if(dataList.get(position).getType() == 1){
+                convertView.setBackgroundColor(context.getResources().getColor(R.color.gray_deep));
+            }else{
+                convertView.setBackgroundColor(context.getResources().getColor(R.color.top_title_blue_theme));
+            }
         }
 
         return convertView;

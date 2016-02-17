@@ -70,6 +70,8 @@ public class LoopView extends View implements OnCircleClick {
         times = Common.screamWidth / 240;
     }
 
+    int marginY = 0;
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -86,7 +88,7 @@ public class LoopView extends View implements OnCircleClick {
             float base = mWidth / (width * 1.00f);
             float pecent = base * base * 0.9f;
             int textH = imageInfo.getTextHeight(mWidth, width);
-            int y = (height - mWidth - textH * times) / 2;
+            int y = (height - mWidth - textH * times) / 2 + marginY;
             int x;
             int dw = width - mWidth;
             if (imageInfo.getX() < width * 2 - expandX) {
@@ -175,7 +177,7 @@ public class LoopView extends View implements OnCircleClick {
                     int textH = imageInfo.getTextHeight(mWidth, width);
                     int top = (height - mWidth - textH) / 2;
 
-                    if (imageInfo.isOnCircle((int) event.getX(), (int) event.getY(), mWidth, width, top)) {
+                    if (imageInfo.isOnCircle((int) event.getX(), (int) event.getY(), mWidth, width, top + marginY)) {
                         if (Math.abs(imageInfo.getX() - (width * 2 - expandX)) < startDx) {
                             final int mi = i;
                             ontouchArea = true;
@@ -273,7 +275,7 @@ public class LoopView extends View implements OnCircleClick {
                         int textH = imageInfo.getTextHeight(mWidth, width);
                         int top = (height - mWidth - textH) / 2;
 
-                        if (imageInfo.isOnCircle((int) event.getX(), (int) event.getY(), mWidth, width, top)) {
+                        if (imageInfo.isOnCircle((int) event.getX(), (int) event.getY(), mWidth, width, top + marginY)) {
                             if (Math.abs(imageInfo.getX() - width * 2 + expandX) < startDx) {
                                 if (circleClick != null) {
                                     circleClick.click(i);
@@ -288,7 +290,7 @@ public class LoopView extends View implements OnCircleClick {
                                             e.printStackTrace();
                                         }
                                         imageInfo.setIsPressed(false);
-                                        handler.sendEmptyMessage(2);
+                                        handler.sendEmptyMessage(1);
 
                                     }
                                 }).start();
@@ -430,8 +432,8 @@ public class LoopView extends View implements OnCircleClick {
                     });
                     float time = (xVelocity) / Common.screamWidth;
 
-                    if(isLoop){
-                        time = time/2;
+                    if (isLoop) {
+                        time = time / 2;
                     }
 
                     valueAnimator.setInterpolator(new DecelerateInterpolator());
@@ -476,7 +478,6 @@ public class LoopView extends View implements OnCircleClick {
                 }
                 currentIndex = 0;
                 gotoMiddle(width * 2 - expandX - imageInfoList.get(0).getX());
-//                setMiddle();
                 return;
             }
 
@@ -487,7 +488,6 @@ public class LoopView extends View implements OnCircleClick {
                 }
                 currentIndex = size - 1;
                 gotoMiddle(width * 2 - expandX - imageInfoList.get(size - 1).getX());
-//                setMiddle();
                 return;
             }
 
@@ -628,11 +628,12 @@ public class LoopView extends View implements OnCircleClick {
         super.onLayout(changed, left, top, right, bottom);
 
         if (width == 0) {
-            float temp = (1.50f) / visiCount;
+            float temp = (1.20f) / visiCount;
             expandX = (int) (Common.screamWidth * temp / 2);
             width = (Common.screamWidth + expandX * 2) / visiCount;
             height = getHeight() * 2 / 3;
             startDx = width / 5;
+            marginY = getHeight() / 15;
             if (status != null) {
                 setImageInfoList(status);
             }
@@ -764,7 +765,7 @@ public class LoopView extends View implements OnCircleClick {
         }
         currentIndex = i - 1;
 
-        if(circleClick != null){
+        if (circleClick != null) {
             circleClick.click(currentIndex);
         }
 
@@ -831,7 +832,7 @@ public class LoopView extends View implements OnCircleClick {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                if(circleClick != null){
+                if (circleClick != null) {
                     circleClick.click(currentIndex);
                 }
             }
@@ -847,61 +848,12 @@ public class LoopView extends View implements OnCircleClick {
             }
         });
 
+
         float time = (moveX * 1.0f) / Common.screamWidth;
         valueAnimator.setInterpolator(new DecelerateInterpolator());
         valueAnimator.setDuration((long) Math.abs(time * 1000));
         valueAnimator.start();
     }
-
-    private void skipMiddle(final int moveX) {
-
-        if (moveX == 0) {
-            return;
-        }
-        stopAnimation();
-        valueAnimator = ValueAnimator.ofInt(moveX, 0);
-        valueAnimator.setEvaluator(new DeceIntEvaluator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                value = (int) animation.getAnimatedValue();
-                int dx;
-                if (beforeValue == 0 && value != 0) {
-                    dx = (moveX - value);
-                } else {
-                    dx = (beforeValue - value);
-                }
-                setImageInfoList(dx);
-                beforeValue = value;
-            }
-        });
-        valueAnimator.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                invalidate();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
-        float time = (moveX * 1.0f) / Common.screamWidth;
-        valueAnimator.setInterpolator(new DecelerateInterpolator());
-        valueAnimator.setDuration((long) Math.abs(time * 1000));
-        valueAnimator.start();
-    }
-
 
     CircleClick circleClick;
 

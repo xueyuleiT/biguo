@@ -2,7 +2,8 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +21,10 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <ListView
+                    android:id="@+id/searchList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
             <LinearLayout
@@ -33,7 +38,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:background="@color/ttf_title_bg"
+                    android:background="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:orientation="horizontal">
 
                     <ListView
@@ -41,6 +48,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:dividerHeight="@dimen/public_space_value_0.1"
                         android:scrollbars="none"
                         android:visibility="invisible" />
 
@@ -50,6 +58,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/ttf_title_bg"
+                        android:dividerHeight="@dimen/public_space_value_0.1"
                         android:scrollbars="none"
                         android:visibility="invisible" />
 
@@ -59,6 +68,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/ttf_title_bg"
+                        android:dividerHeight="@dimen/public_space_value_0.1"
                         android:scrollbars="none"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -66,23 +76,22 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/ttf_title_bg"
-                    android:gravity="center_vertical">
+                    android:background="@color/top_title_blue_theme"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/public_space_value_5">
 
                     <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/public_space_value_50"
+                        android:layout_height="@dimen/public_space_value_30"
                         android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="@dimen/public_space_value_5"
-                        android:padding="@dimen/public_space_value_5"
+                        android:background="@drawable/normal_btn"
                         android:text="取消" />
 
                     <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/public_space_value_50"
+                        android:layout_height="@dimen/public_space_value_30"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/public_space_value_5"
-                        android:padding="@dimen/public_space_value_5"
+                        android:background="@drawable/normal_btn"
                         android:text="确定" />
 
                 </RelativeLayout>

@@ -17,10 +17,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.zenghui.overyearspaper.Adapter.ChooseAdapter;
+import com.example.zenghui.overyearspaper.Adapter.DownLoadAdapter;
 import com.example.zenghui.overyearspaper.Model.ChooseInfo;
+import com.example.zenghui.overyearspaper.Model.DownLoadData;
 import com.example.zenghui.overyearspapers.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -30,6 +33,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
 
     private View rootView;
     ListView adacemy, perfession, calss;
+    ListView searchList;
     ChooseAdapter adacemyAdapter, perfessionAdapter, calssAdapter;
     TextView textView;
     Button rightBtn;
@@ -38,7 +42,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
     ArrayList<ChooseInfo> perfessionList = new ArrayList<ChooseInfo>();
     ArrayList<ChooseInfo> calssList = new ArrayList<ChooseInfo>();
     int[] location;
-
+    DownLoadAdapter downLoadAdapter;
 
     @Nullable
     @Override
@@ -68,7 +72,16 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         perfession = (ListView) rootView.findViewById(R.id.perfession);
         calss = (ListView) rootView.findViewById(R.id.calss);
         chooseView = (LinearLayout) rootView.findViewById(R.id.chooseView);
+        searchList = (ListView) rootView.findViewById(R.id.searchList);
 
+        List<DownLoadData> downLoadDataList = new ArrayList<DownLoadData>();
+        for (int i = 0; i < 10; i++) {
+            DownLoadData downLoadData = new DownLoadData();
+            downLoadDataList.add(downLoadData);
+        }
+
+        downLoadAdapter = new DownLoadAdapter(getActivity(), downLoadDataList);
+        searchList.setAdapter(downLoadAdapter);
     }
 
 
@@ -102,6 +115,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                     ChooseInfo info = new ChooseInfo();
                     info.setName("信息与科学");
                     info.setSelect(false);
+                    info.setType(1);
                     perfessionList.add(info);
                 }
 
@@ -143,12 +157,20 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                     ChooseInfo info = new ChooseInfo();
                     info.setName("信息与科学");
                     info.setSelect(false);
+                    info.setType(2);
                     calssList.add(info);
                 }
 
                 calssAdapter = new ChooseAdapter(getActivity(), calssList);
                 calss.setAdapter(calssAdapter);
 
+            }
+        });
+        calss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                calssList.get(position).setSelect(true);
+                calssAdapter.notifyDataSetChanged();
             }
         });
     }
@@ -240,6 +262,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                     ChooseInfo info = new ChooseInfo();
                     info.setName("信息与科学");
                     info.setSelect(false);
+                    info.setType(0);
                     dataList.add(info);
                 }
                 adacemyAdapter = new ChooseAdapter(getActivity(), dataList);
