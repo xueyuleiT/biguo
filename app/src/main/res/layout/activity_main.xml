@@ -128,6 +128,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:layout_marginTop="@dimen/public_space_value_55"
-        app:headerLayout="@layout/navigation_header"
-        app:menu="@menu/drawer" />
+        android:background="@android:color/white"
+        app:headerLayout="@layout/navigation_header" />
 </android.support.v4.widget.DrawerLayout>

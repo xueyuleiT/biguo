@@ -11,7 +11,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
-
+    public void showToast(int msgResId) {
+        Toast.makeText(this, msgResId, Toast.LENGTH_SHORT).show();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,4 +27,5 @@ public abstract class BaseActivity extends AppCompatActivity {
     abstract void initDatas();
 
     abstract void doOther();
+
 }

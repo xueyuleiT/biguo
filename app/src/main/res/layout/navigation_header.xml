@@ -1,15 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:background="#30469b">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/header_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_centerInParent="true"
-        android:text="HeaderLayout"
-        android:textColor="#ffffff"
-        android:textSize="25sp" />
-</RelativeLayout>
+        android:background="#009AEE"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/public_space_value_10">
+
+        <ImageView
+            android:id="@+id/my_head_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/default_male_56x56" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/public_space_value_10"
+            android:text="JSD__"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/public_textsize_value_16" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/public_space_value_10"
+        android:layout_marginRight="@dimen/public_space_value_10"
+        android:layout_marginTop="@dimen/public_space_value_10"
+        android:background="@drawable/icon_rect"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/public_space_value_10">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_account" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/public_space_value_10"
+            android:text="我的账号"
+            android:textColor="@color/ttf_report_line_color"
+            android:textSize="@dimen/public_textsize_value_16" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/public_space_value_10"
+        android:layout_marginRight="@dimen/public_space_value_10"
+        android:layout_marginTop="@dimen/public_space_value_10"
+        android:background="@drawable/icon_rect"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/public_space_value_10">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_find_pwd" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/public_space_value_10"
+            android:text="找回密码"
+            android:textColor="@color/ttf_report_line_color"
+            android:textSize="@dimen/public_textsize_value_16" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/public_space_value_10"
+        android:layout_marginRight="@dimen/public_space_value_10"
+        android:layout_marginTop="@dimen/public_space_value_10"
+        android:background="@drawable/icon_rect"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/public_space_value_10">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_account" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/public_space_value_10"
+            android:text="附近的人"
+            android:textColor="@color/ttf_report_line_color"
+            android:textSize="@dimen/public_textsize_value_16" />
+
+    </LinearLayout>
+
+</LinearLayout>

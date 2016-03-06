@@ -58,11 +58,26 @@ public class MainActivity extends BaseActivity {
     public void onBackPressed() {
         if (mainActController.showFragment == 0) {
             if (!((SearchFragment) mainActController.mFragments[0]).goBack()) {
-                super.onBackPressed();
+                doubleClickExitApp();
             }
         } else {
-            super.onBackPressed();
+            doubleClickExitApp();
         }
 
+    }
+
+    private void doubleClickExitApp() {
+        if (Common.downTime == 0) {
+            Common.downTime = System.currentTimeMillis();
+            showToast(R.string.double_click_exit_app);
+            return;
+        }
+        long lastDownTime = System.currentTimeMillis();
+        if ((lastDownTime - Common.downTime) > 1000) {
+            Common.downTime = lastDownTime;
+            showToast(R.string.double_click_exit_app);
+        } else {
+            System.exit(0);
+        }
     }
 }

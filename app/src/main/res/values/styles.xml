@@ -9,4 +9,15 @@
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     </style>
+
+    <style name="myTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="actionBarTheme">@style/myTheme.actionBar</item>
+        <item name="colorPrimary">#49B6AD</item>
+        <item name="actionBarSize">@dimen/iwf_actionBarSize</item>
+    </style>
+
+    <style name="myTheme.actionBar" parent="AppTheme">
+        <item name="android:textColorPrimary">#49B6AD</item>
+        <item name="actionBarSize">@dimen/iwf_actionBarSize</item>
+    </style>
 </resources>

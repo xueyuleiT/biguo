@@ -22,17 +22,17 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.example.zenghui.overyearspaper.MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/myTheme" />
 
         <activity
             android:name="com.example.zenghui.overyearspaper.UpAndDownActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/myTheme" />
         <activity
             android:name="com.example.zenghui.overyearspaper.RegisterActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/myTheme" />
         <activity
             android:name="com.example.zenghui.overyearspaper.LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/myTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,7 +40,10 @@
             </intent-filter>
         </activity>
 
-
+        <activity
+            android:theme="@style/myTheme"
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            />
         <activity
             android:name="cn.smssdk.SMSSDKUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"

@@ -44,6 +44,8 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
     int[] location;
     DownLoadAdapter downLoadAdapter;
 
+    Button cancel,ok;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -74,6 +76,9 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         chooseView = (LinearLayout) rootView.findViewById(R.id.chooseView);
         searchList = (ListView) rootView.findViewById(R.id.searchList);
 
+        cancel = (Button) rootView.findViewById(R.id.cancel);
+        ok = (Button) rootView.findViewById(R.id.ok);
+
         List<DownLoadData> downLoadDataList = new ArrayList<DownLoadData>();
         for (int i = 0; i < 10; i++) {
             DownLoadData downLoadData = new DownLoadData();
@@ -86,6 +91,9 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
 
 
     void initLinstener() {
+
+        cancel.setOnClickListener(this);
+        ok.setOnClickListener(this);
         adacemy.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -169,6 +177,13 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         calss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int length = calssList.size();
+                for (int i = 0; i < length; i++) {
+                    if (calssList.get(i).isSelect()) {
+                        calssList.get(i).setSelect(false);
+                        break;
+                    }
+                }
                 calssList.get(position).setSelect(true);
                 calssAdapter.notifyDataSetChanged();
             }
@@ -185,6 +200,15 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
             case R.id.more:
                 showDialog();
                 break;
+
+            case R.id.ok:
+                showDialog();
+                break;
+
+            case R.id.cancel:
+                showDialog();
+                break;
+
         }
 
     }

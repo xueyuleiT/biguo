@@ -23,4 +23,6 @@
     <string name="i_agree">我同意</string>
     <string name="send_verify_msg">获取验证码</string>
     <string name="captcha">验证码</string>
+
+    <string name="double_click_exit_app">请再点击一次返回,退出程序</string>
 </resources>

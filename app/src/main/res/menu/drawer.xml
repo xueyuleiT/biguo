@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/item_one"
-            android:icon="@drawable/icon"
-            android:title="我的动态"></item>
+            android:icon="@drawable/icon_account"
+            android:title="我的账号"></item>
         <item
             android:id="@+id/item_two"
-            android:icon="@drawable/icon"
-            android:title="我的留言"></item>
+            android:icon="@drawable/icon_find_pwd"
+            android:title="找回密码"></item>
         <item
             android:id="@+id/item_three"
             android:icon="@drawable/icon"
-            android:title="附近的人"></item>
+            android:title="附近的人"/>
     </group>
 </menu>

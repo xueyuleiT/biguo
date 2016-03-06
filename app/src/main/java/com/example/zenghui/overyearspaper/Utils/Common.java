@@ -17,6 +17,7 @@ public class Common {
     public static String PHONE_PATTERN ="^[1][3,4,7,5,8][0-9]{9}$";
     public static int screamHeight = 0, screamWidth = 0;
     public static String DOMAIN = "";
+    public static long downTime = 0;//退出点击的时间
 
     public static ITask getItask(String apiUrl) {
         RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint(apiUrl)

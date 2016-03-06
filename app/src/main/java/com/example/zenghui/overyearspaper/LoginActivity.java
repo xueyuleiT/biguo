@@ -36,7 +36,7 @@ public class LoginActivity extends BaseActivity {
 
         }
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         loginActController = new LoginActController(this);
         loginActController.initView();
     }

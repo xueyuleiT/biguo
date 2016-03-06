@@ -29,7 +29,7 @@ public class MainActController implements View.OnClickListener {
     public NavigationView mNavigationView;
     public DrawerLayout mDrawerLayout;
     public Toolbar mToolbar;
-    public Menu menuItem;
+    public Menu menuItem,leftMenuItem;
     public BaseActivity activity;
 
     public MainActController(BaseActivity activity) {
@@ -43,6 +43,7 @@ public class MainActController implements View.OnClickListener {
         mToolbar.setTitle("");
         activity.setSupportActionBar(mToolbar);
         title = ((TextView) activity.findViewById(R.id.title));
+        title.setText("资料查询");
 
 
         //设置抽屉DrawerLayout
@@ -57,6 +58,12 @@ public class MainActController implements View.OnClickListener {
         imgTwo = (RadioButton) activity.findViewById(R.id.imgTwo);
         imgOne = (RadioButton) activity.findViewById(R.id.imgOne);
         imgThree = (RadioButton) activity.findViewById(R.id.imgThree);
+
+
+//        leftMenuItem = mNavigationView.getMenu();
+//        leftMenuItem.getItem(0).setTitle("我的账号");
+//        leftMenuItem.getItem(1).setTitle("找回密码");
+//        leftMenuItem.getItem(2).setTitle("关于我们");
 
     }
 
@@ -100,6 +107,15 @@ public class MainActController implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.imgOne:
+                if (showFragment != 0) {
+                    menuItem.findItem(R.id.action_search).setVisible(true);
+                    activity.getSupportFragmentManager().beginTransaction()
+                            .hide(mFragments[1]).hide(mFragments[2]).show(mFragments[0]).commit();
+                    showFragment = 0;
+                    title.setText("资料查询");
+                }
+                break;
             case R.id.imgTwo:
                 if (showFragment != 1) {
                     menuItem.findItem(R.id.action_search).setVisible(false);
@@ -107,16 +123,7 @@ public class MainActController implements View.OnClickListener {
                             .hide(mFragments[0]).hide(mFragments[2]).show(mFragments[1]).commit();
                     showFragment = 1;
                     ((DownAndUploadFragment) mFragments[1]).init();
-                    title.setText("imgTwo");
-                }
-                break;
-            case R.id.imgOne:
-                if (showFragment != 0) {
-                    menuItem.findItem(R.id.action_search).setVisible(true);
-                    activity.getSupportFragmentManager().beginTransaction()
-                            .hide(mFragments[1]).hide(mFragments[2]).show(mFragments[0]).commit();
-                    showFragment = 0;
-                    title.setText("imgOne");
+                    title.setText("上传与下载");
                 }
                 break;
             case R.id.imgThree:
@@ -126,7 +133,7 @@ public class MainActController implements View.OnClickListener {
                             .hide(mFragments[1]).hide(mFragments[0]).show(mFragments[2]).commit();
                     ((Fragment_three) mFragments[2]).init();
                     showFragment = 2;
-                    title.setText("imgThree");
+                    title.setText("我的");
                 }
                 break;
 
